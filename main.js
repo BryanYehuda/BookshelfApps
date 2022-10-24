@@ -1,5 +1,7 @@
 const books = [];
 const RENDER_EVENT = 'render-book';
+const SAVED_EVENT = 'saved-books';
+const STORAGE_KEY = 'BOOKSHELF_APPS';
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log(books);
@@ -8,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         addBook();
     });
+    if (isStorageExist()) {
+        loadDataFromStorage();
+    }
 });
 
 document.addEventListener(RENDER_EVENT, function() {
@@ -24,6 +29,10 @@ document.addEventListener(RENDER_EVENT, function() {
         else
             completedBookList.append(bookElement);
     }
+});
+
+document.addEventListener(SAVED_EVENT, function() {
+    console.log(localStorage.getItem(STORAGE_KEY));
 });
 
 function generateId() {
@@ -59,6 +68,34 @@ function findBookIndex(bookId) {
     return -1;
 }
 
+function saveData() {
+    if (isStorageExist()) {
+        const parsed = JSON.stringify(books);
+        localStorage.setItem(STORAGE_KEY, parsed);
+        document.dispatchEvent(new Event(SAVED_EVENT));
+    }
+}
+
+function isStorageExist() {
+    if (typeof(Storage) === undefined) {
+        alert('Browser anda tidak mendukung local storage');
+        return false;
+    }
+    return true;
+}
+
+function loadDataFromStorage() {
+    const serializedData = localStorage.getItem(STORAGE_KEY);
+    let data = JSON.parse(serializedData);
+
+    if (data !== null) {
+        for (const book of data) {
+            books.push(book);
+        }
+    }
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
 function addBook() {
     const bookTitle = document.getElementById('input-book-title').value;
     const bookAuthor = document.getElementById('input-book-author').value;
@@ -70,6 +107,7 @@ function addBook() {
     books.push(bookObject);
 
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 function makeBook(bookObject) {
@@ -129,6 +167,7 @@ function addBookToCompleted(bookId) {
         alert('Buku Berhasil Ditambahkan ke Selesai Dibaca')
     }
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 function removeBookFromCompleted(bookId) {
@@ -142,6 +181,7 @@ function removeBookFromCompleted(bookId) {
         alert('Buku Berhasil Dihapus')
     }
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 function undoBookFromCompleted(bookId) {
@@ -155,4 +195,5 @@ function undoBookFromCompleted(bookId) {
         alert('Buku Berhasil Ditambahkan ke Belum Selesai Dibaca')
     }
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
