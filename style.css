@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+input,
+button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Header */
+
+.header {
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6BA368;
+    color: white;
+}
+
+
+/* Input */
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 2px solid black;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 80%;
+    margin: 20px auto;
+    padding: 16px;
+}
+
+.input-section h2 {
+    text-align: center;
+    color: #6BA368;
+}
+
+.input-section form .input {
+    margin: 10px 0;
+}
+
+.input-section form button {
+    background-color: #6BA368;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.input-section form button span {
+    font-weight: bold;
+}
+
+.input-section form .input input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.input-section form .input label {
+    color: #6BA368;
+    font-weight: bold;
+}
+
+.input-section form .input-inline {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+}
+
+.input-section form .input_inline label {
+    color: #6BA368;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#input-book-is-complete {
+    margin-left: 5px;
+    margin-top: 2px;
+}

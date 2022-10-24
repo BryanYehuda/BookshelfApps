@@ -25,12 +25,42 @@
     <!-- Icon Ends -->
 </head>
 
-
-
 <body>
 
+    <!-- Header Starts -->
+    <header class="header">
+        <h1 class="header-title">Bookshelf Apps</h1>
+    </header>
+    <!-- Header Ends -->
 
+    <!-- Input Starts -->
+    <section class="input-section">
+        <h2>Masukkan Buku Baru</h2>
+        <form id="input-boo">
+            <div class="input">
+                <label for="input-book-title">Judul</label>
+                <input id="input-book-title" type="text" required>
+            </div>
+            <div class="input">
+                <label for="input-book-author">Penulis</label>
+                <input id="input-book-author" type="text" required>
+            </div>
+            <div class="input">
+                <label for="input-book-year">Tahun</label>
+                <input id="input-book-year" type="number" required>
+            </div>
+            <div class="input-inline">
+                <label for="input-book-is-complete">Selesai dibaca</label>
+                <input id="input-book-is-complete" type="checkbox">
+            </div>
+            <button id="book-submit" type="submit">Masukkan Buku ke rak <br><span>Belum selesai dibaca</span></button>
+        </form>
+    </section>
+    <!-- Input Ends -->
 
+    <!-- Script Starts -->
+    <script src="main.js"></script>
+    <!-- Script Ends -->
 </body>
 
 </html>
