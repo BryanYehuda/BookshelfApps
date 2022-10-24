@@ -57,10 +57,6 @@ button {
     cursor: pointer;
 }
 
-.input-section form button span {
-    font-weight: bold;
-}
-
 .input-section form .input input {
     display: block;
     width: 100%;
@@ -88,4 +84,113 @@ button {
 #input-book-is-complete {
     margin-left: 5px;
     margin-top: 2px;
+}
+
+
+/* Bookshelf */
+
+.shelf {
+    margin: 16px 0 0 0;
+    border: 2px solid black;
+    padding: 16px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 16px;
+}
+
+.shelf h2 {
+    color: #6BA368;
+}
+
+.shelf .book-list {
+    padding: 16px;
+}
+
+.shelf .book-list .book-item {
+    padding: 8px 16px 16px 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.shelf .book-list .book-item h3,
+p {
+    margin: 8px 0;
+}
+
+.shelf .book-list .book-item .action button {
+    border: 0;
+    padding: 5px;
+    margin: 0 5px 0 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shelf .book-list .book-item .action .green {
+    background-color: darkgreen;
+    color: white;
+}
+
+.book-shelf .book-list .book-item .action .red {
+    background-color: darkred;
+    color: white;
+}
+
+
+/* Icons */
+
+.check-button {
+    width: 30px;
+    height: 30px;
+    background: url('./assets/check-outline.svg');
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    float: right;
+    margin-top: -80px;
+}
+
+.check-button:hover {
+    background: url('./assets/check-solid.svg');
+    background-size: contain;
+}
+
+.trash-button {
+    width: 30px;
+    height: 30px;
+    background: url('./assets/trash-outline.svg');
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    float: right;
+    margin-right: 5px;
+    margin-top: -80px;
+}
+
+.trash-button:hover {
+    background: url('./assets/trash-fill.svg');
+    background-size: contain;
+}
+
+.undo-button {
+    width: 30px;
+    height: 30px;
+    background: url('./assets/undo-ouline.svg');
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    float: right;
+    margin-right: 45px;
+    margin-top: -80px;
+}
+
+.undo-button:hover {
+    background: url('./assets/undo-ouline.svg');
+    background-size: contain;
+}
+
+.check-button:focus,
+.trash-button {
+    outline: none;
 }
