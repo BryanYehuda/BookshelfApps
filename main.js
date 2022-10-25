@@ -151,7 +151,14 @@ function makeBook(bookObject) {
             addBookToCompleted(bookObject.id);
         });
 
-        textContainer.append(checkButton);
+        const trashButton = document.createElement('button');
+        trashButton.classList.add('trash-button');
+
+        trashButton.addEventListener('click', function() {
+            removeBookFromCompleted(bookObject.id);
+        });
+
+        textContainer.append(checkButton, trashButton);
     }
     return container;
 }
@@ -177,7 +184,7 @@ function removeBookFromCompleted(bookId) {
         alert('Buku Tidak Ditemukan!');
         return;
     } else {
-        todos.splice(bookTarget, 1);
+        books.splice(bookTarget, 1);
         alert('Buku Berhasil Dihapus')
     }
     document.dispatchEvent(new Event(RENDER_EVENT));
